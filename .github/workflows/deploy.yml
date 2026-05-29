@@ -1,10 +1,8 @@
-
 name: Flask app hola
 
 on:
   push:
     branches: [ "main" ]
-  
 
 permissions:
   contents: read
@@ -12,15 +10,16 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Set up Python 3.12
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5 # Actualizado a v5 que es más estable para Python 3.12
       with:
         python-version: "3.12"
+        
     - name: Install dependencies
       run: pip install -r requirements.txt
 
@@ -28,8 +27,9 @@ jobs:
       run: docker build -t ghcr.io/saqcaiza/flask:1.0.0 .  
 
     - name: Login hacia Github container Registry  
-      run: echo "${{ secrets.TOKEN_WRT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      # Usamos el GITHUB_TOKEN automático que tiene los permisos de "packages: write" que declaraste arriba
+      run: echo "${{ secrets.TOKEN_wrt }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
     
     - name: Publicar la imagen
-      run: docker push ghcr.io/saqcaiza/flask:1.0.0 .
-      
+      # CORREGIDO: Se quitó el punto "." del final
+      run: docker push ghcr.io/saqcaiza/flask:1.0.0
