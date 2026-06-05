@@ -7,11 +7,11 @@ WORKDIR /app
 # paso 3 copiar el archivo de dependencias
 COPY requirements.txt /app
 
-# paso 4 instalar las dependencias (CORREGIDO EL GUION)
+# paso 4 instalar las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# paso 5 copiar nuestro codigo fuente 
-COPY app.py /app
+# paso 5 copiar nuestro codigo fuente
+COPY app.py test_app.py /app
 
 # paso 6 exponer el puerto 5000
 EXPOSE 5000
