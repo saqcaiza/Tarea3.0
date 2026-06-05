@@ -11,7 +11,7 @@ HTML_TEMPLATE = """
     <title>Flask App</title>
 </head>
 <body>
-    <h1>¡Hola desde Flask! 🚀</h1>
+    <h1>¡Hola mundoooooooooooooooo </h1>
 </body>
 </html>
 """
@@ -21,6 +21,6 @@ def home():
     return render_template_string(HTML_TEMPLATE)
 
 if __name__ == '__main__':
-    # Lee el puerto asignado dinámicamente o usa el 5000 por defecto
+    # Apto para cualquier puerto dinámico del entorno o el 5000 por defecto
     puerto = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=puerto, debug=True)

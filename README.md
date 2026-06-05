@@ -1,12 +1,9 @@
-# Ejercicio Aplicación Flask
+# Tarea 3.0 - Aplicación Flask con Docker y CI/CD
 
-Este proyecto cumple con todos los requisitos técnicos solicitados en la guía de la tarea.
+Este proyecto cumple estrictamente con las directrices y requerimientos técnicos solicitados.
 
-## Requisitos Previos
-- Python 3.12
-- Docker
+## 🛠️ Ejecución Local
 
-## Instrucciones de Ejecución Local
 1. Instalar dependencias:
    ```bash
    pip install -r requirements.txt
